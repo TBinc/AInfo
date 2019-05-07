@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE note [
+<!ELEMENT note (to,from,heading,body)>
+<!ELEMENT to (#PCDATA)>
+<!ELEMENT from (#PCDATA)>
+<!ELEMENT heading (#PCDATA)>
+<!ELEMENT body (#PCDATA)>
+]>
+<note>
+<to>Tove</to>
+<from>Jani</from>
+<heading>Reminder</heading>
+<body>Don't forget me this weekend</body>
+</note>
+
+
+
+<?xml version="1.0"?>
+<!DOCTYPE note SYSTEM "note.dtd">
+<note>
+  <to>Tove</to>
+  <from>Jani</from>
+  <heading>Reminder</heading>
+  <body>Don't forget me this weekend!</body>
+</note>
+
+
+
+PCDATA is text that WILL be parsed by a parser. 
+DATA is text that will NOT be parsed by a parser.
+
+<!ELEMENT element-name category>
+or
+<!ELEMENT element-name (element-content)>
+
+<!ELEMENT br EMPTY>
+<br />
+
+<!ELEMENT element-name (#PCDATA)>
+<!ELEMENT from (#PCDATA)>
+
+<!ELEMENT element-name ANY>
+<!ELEMENT note ANY>
+
+#Solo una vez
+<!ELEMENT element-name (child-name)>
+<!ELEMENT note (message)>
+
+#Minimo uno con el +
+<!ELEMENT element-name (child-name+)>
+<!ELEMENT note (message+)>
+
+#Minimo cero con el *
+<!ELEMENT element-name (child-name*)>
+<!ELEMENT note (message*)>
+
+
+#Cero o uno con el ?
+<!ELEMENT element-name (child-name?)>
+<!ELEMENT note (message?)>
+
+#Either
+<!ELEMENT note (to,from,header,(message|body))>
+
+
+
+
