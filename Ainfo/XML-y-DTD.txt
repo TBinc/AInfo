@@ -1,0 +1,47 @@
+Ejercicio 1
+
+ <?xml version="1.0" standalone = "yes"?>
+ <!- this is a note ->
+ <note date=3 name = "janvier">
+   <to>Bob</To>
+   <from>Alice</from>
+   <heading>Reminder</heading>
+   <body>Dont forget me this weekend!</body>
+ </note>
+ <note date="5" name= "janvier"<!- this is another note -> >
+   <to>Alice</to>
+   <from>Bob
+   <body>No problem & see you soon</body>
+ </note>
+ 
+ Ejercio 2
+
+ <!ELEMENT cdtheque (cd*) >
+ <!ATTLIST cdtheque date CDATA #REQUIRED>
+ <!ATTLIST cdtheque auteur CDATA #REQUIRED>
+ <!ELEMENT cd (titre,artiste,style?)>
+ <!ELEMENT title (#PCDATA)>
+ <!ELEMENT style (#PCDATA)>
+ <!ELEMENT artist (#PCDATA)>
+   
+ a)  
+ <?xml version ="1.0" encoding ="UTF-8"?>
+   <cdtheque date = "date" aut4eur = "autor">
+     <cd>
+       <name>   </name>
+       <style>  </style>
+       <artist> </artist>
+     </cd>
+   </cdtheque>
+
+ b)
+ <?xml version ="1.0" encoding ="UTF-8"?>
+ <!DOCTYPE list SYSTEM "dtf_file_name.dtd">
+   <cdtheque date = "date" auteur = "autor">
+     <cd>
+       <name>   </name>
+       <style>  </style>
+       <artist> </artist>
+     </cd>
+   </cdtheque>
+ 

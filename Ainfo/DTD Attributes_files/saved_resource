@@ -1,0 +1,9 @@
+Adform=window.Adform||{};
+Adform.host="https://a1.adform.net";
+Adform.shost="https://s2.adform.net";
+Adform.scriptBase=Adform.shost+"/banners/scripts/";
+Adform.cache="615";
+Adform.ADFBannerData={"URL":"https://a1.adform.net/adfserve/?bn=29901501;click=https://nym1-ib.adnxs.com/click?K0Mc6-I2Cj8-q8yU1t8CPwAAAIAUrgNAPqvMlNbfAj8sQxzr4jYKPy189phAlFp3XVMxTUS_Q0lh0tFcAAAAAIPeyAAiIgAApyMAAAIAAACRUDgJmsYWAAAAAABVU0QAVVNEAEABMgDNlQAAAAABAQUCAAAAALwA7SLtEQAAAAA./bcr=AAAAAAAA8D8=/cnd=%21jA8dngjv-uMNEJGh4UkYmo1bIAAoADEAAAAAAAAAADoJTllNMjo0MjAyQL4LSWebG9MTluw_UQAAAAAAAAAAWQAAAAAAAAAA/cca=OTEyNyNOWU0yOjQyMDI=/bn=84242/clickenc=;ord=2030729786","CREFURL":"https%3a%2f%2fwww.w3schools.com%2fxml%2fxml_dtd_attributes.asp","BN":29901501};
+if(!Adform.ADFBannerParams)Adform.ADFBannerParams=[];
+Adform.ADFBannerParams.push(Adform.ADFBannerData);
+typeof Adform.ADFUtilInstance=="undefined"?document.write('<scr'+'ipt type="text/javascript" src="https://s2.adform.net/stoat/615/s2.adform.net/bootstrap.js"></scr'+'ipt>'):new Adform.ADFBanner();
