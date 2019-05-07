@@ -1,0 +1,103 @@
+Use the hydro dam data
+
+1. Start by reading in the data. Change the first variable to a Date class
+
+hydro <- read.csv("hydro.csv")
+
+# Note that the format of Date was D/M/Y
+
+library(lubridate)
+
+#### Attaching package:’lubridate’
+
+## The following object is masked from ’package:base’:
+
+##date
+
+hydro$Date <- as.Date(dmy(hydro$Date))
+
+2. Are the successive measurements in the dataset always exactly one week apart? Hint: use diff).
+
+# diff() gives us the sequential differences, we can then list the unique values
+
+# of these differences.
+
+unique(diff(hydro$Date))
+
+## [1] 7
+
+3. Assume that a dangerously low level of the dam is 235 Gwh. How many weeks was the damlevel equal to or lower than this value?
+
+# Because the answer to the previous question was yes,
+
+# we can just count the number of observations where storage was < 235, like so:
+
+sum(hydro$storage < 235)
+
+## [1] 24
+
+4. For question 2., how many times did storage decrease below 235 (regardless of how long itremained below 235)? Hint: use diff and subset).
+
+# SOLUTION 1
+
+# Take a subset of the data where storage < 235
+
+hydrolow <- subset(hydro, storage < 235)
+
+# Look at time difference between successive dates
+
+diff(hydrolow$Date)
+
+## Time differences in days
+
+## [1] 7 7 7 7 7 7 7 7 7 7 7 7 35 7 7 7 7
+
+## [18] 238 7 63 7 7 7
+
+# whenever this time difference is larger than 7,
+
+# the level has dipped below 235 again
+
+# (plus one, because the hydrolow dataset starts below 235)
+
+sum(diff(hydrolow$Date) > 7) + 1
+
+## [1] 4
+
+# SOLUTION 2
+
+# Add variable that is 0 when storage < 235,
+
+# 1 otherwise:
+
+hydro$storageBinary <- ifelse(hydro$storage< 235,0,1)
+
+# Now, diff gives -1 when storage dipped below 235:
+
+diff(hydro$storageBinary)
+
+# How many times did it dip below 235?
+
+difs <- diff(hydro$storageBinary)
+
+sum(difs == -1)
+
+## [1] 4
+
+Elemento
+Ejercicio propuesto en R
+Archivos adjuntos:
+Archivo HFEIFplotmeans.csv (9,735 KB)
+Use the data for the HFE irrigation x fertilisation experiment
+
+1. Read the data and look at various summaries of the dataset. Use summary, str and describe(the latter is in the Hmisc package).
+
+2. From these summaries, find out how many missing values there are for height and diameter.Also count the number of missing values
+
+3. Inspect the levels of the treatment (treat), with the levels function. Also count the number oflevels with the nlevels function. Now assign new levels to the factor, replacing the abbreviationswith a more informative label.
+
+4. Using table, count the number of observations by treat, to check if the dataset is balanced.Be aware that table simply counts the number of rows, regardless of missing values. Now take a subset of the dataset where height is not missing, and check the number of observations again.
+
+5. For which dates do missing values occur in height in this dataset? Hint: use a combination ofis.na and unique.
+
+6. Using grep, find the six elements treat ’I’ or 'IL'. Make this subset into a newd ataframe. When did they happen?
